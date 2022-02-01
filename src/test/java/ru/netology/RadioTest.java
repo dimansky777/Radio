@@ -22,7 +22,7 @@ class RadioTest {
     //Переключение радио от 0 до 9  return test 1
     public void testReturnPositionBelowZero() {
         Radio rad = new Radio();
-        rad.setCurrentRadioStation(-1);
+        rad.setCurrentRadioStation(-2);
 
 
         int expected = 0;
@@ -50,7 +50,7 @@ class RadioTest {
     Radio rad = new Radio();
 
     rad.setCurrentRadioStation(9);
-    rad.setNextRadioSation();
+    rad.setNextRadioStation();
 
     int expected = 0;
     int actual = rad.getCurrentRadioStation();
@@ -63,7 +63,7 @@ class RadioTest {
         Radio rad = new Radio();
 
         rad.setCurrentRadioStation(7);
-        rad.setNextRadioSation();
+        rad.setNextRadioStation();
 
         int expected =8;
         int actual = rad.getCurrentRadioStation();
@@ -255,5 +255,71 @@ class RadioTest {
         int actual = rad.getCurrentVolume();
         assertEquals(expected,actual);
     }
+    @Test
+    //Кнопка Next Station
+    public void setNextStation() {
+        Radio rad = new Radio();
 
+        rad.setCurrentRadioStation(7);
+        rad.setNextRadioStation();
+        int expected = 8;
+        int actual = rad.getCurrentRadioStation();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    //Кнопка Next Station
+    public void setNextStation2() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioStation(10);
+        rad.setNextRadioStation();
+        int expected = 1;
+        int actual = rad.getCurrentRadioStation();
+        assertEquals(expected, actual);
+    }
+    @Test
+    //Кнопка Next Station
+    public void setNextStation3() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioStation(8);
+        rad.setNextRadioStation();
+        int expected = 9;
+        int actual = rad.getCurrentRadioStation();
+        assertEquals(expected, actual);
+    }
+    @Test
+    //Кнопка Next Station
+    public void setNextStation4() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioStation(0);
+        rad.setNextRadioStation();
+        int expected = 1;
+        int actual = rad.getCurrentRadioStation();
+        assertEquals(expected, actual);
+    }
+    @Test
+    //Кнопка Next Station
+    public void setNextRadioStation5() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioStation(-1);
+        rad.setNextRadioStation();
+        int expected = 0;
+        int actual = rad.getCurrentRadioStation();
+        assertEquals(expected, actual);
+    }
+    @Test
+    //Кнопка Next Station
+    public void setNextRadioStation6() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioStation(9);
+        rad.setNextRadioStation();
+        int expected = 0;
+        int actual = rad.getCurrentRadioStation();
+        assertEquals(expected, actual);
+    }
 }
