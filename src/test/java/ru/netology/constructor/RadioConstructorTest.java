@@ -29,13 +29,13 @@ public class RadioConstructorTest {
 
         assertEquals(0, radio3.getMinStation());
 
-        ///проверка макс громкость=и
+        ///проверка макс громкости
         Radio radio4 = new Radio();
         radio4.getMaxVolume();
 
         assertEquals(100, radio4.getMaxVolume());
 
-        ///проверка макс громкость=и
+        ///проверка макс громкости
         Radio radio5 = new Radio();
         radio4.getMaxVolume();
 
@@ -43,22 +43,22 @@ public class RadioConstructorTest {
 
         ///Переключение радио вперед от 0 до 9
         Radio radio6 = new Radio(6,50,10,0,100,0);
-        radio6.setNextRadioSation();
+        radio6.setNextRadioStation();
         assertEquals(7, radio6.getCurrentRadioStation());
 
         ///Переключение радио назад от 9 до 0
         Radio radio7 = new Radio(7,50,10,0,100,0);
-        radio7.setPrevRadioSation();
+        radio7.setPrevRadioStation();
         assertEquals(6, radio7.getCurrentRadioStation());
 
         ///Переключение радио назад от 0 до 9
         Radio radio8 = new Radio(0,50,10,0,100,0);
-        radio8.setPrevRadioSation();
+        radio8.setPrevRadioStation();
         assertEquals(9, radio8.getCurrentRadioStation());
 
         ///Переключение радио назад от 9 до 0
         Radio radio9 = new Radio(9,50,10,0,100,0);
-        radio9.setNextRadioSation();
+        radio9.setNextRadioStation();
         assertEquals(0, radio9.getCurrentRadioStation());
 
         ///Включение любой станции с 0 до 9
@@ -72,10 +72,74 @@ public class RadioConstructorTest {
         assertEquals(3, radio11.getCurrentRadioStation());
 
         ///Включение станции меньше 0
-        Radio radio12 = new Radio();
+        Radio radio12 = new Radio(0,30,9,0,100,0);
         radio12.setCurrentRadioStation(-1);
-        assertEquals(3, radio12.getCurrentRadioStation());
+        assertEquals(0, radio12.getCurrentRadioStation());
+
+    }
+    @Test
+    // Volume test return
+    public void setVolumeAboveTen(){
+        Radio rad = new Radio();
+
+        rad.setCurrentVolume(11);
+        //rad.setVolumeDown();
+
+        int expected = 0;
+        int actual = rad.getCurrentVolume();
+        assertEquals(expected,actual);
     }
 
+    @Test
+    // Volume test return
+    public void setVolumeTo101(){
+        Radio rad = new Radio();
+
+        rad.setCurrentVolume(101);
+        rad.setVolumeUp();
+
+        int expected = 101;
+        int actual = rad.getCurrentVolume();
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    // Volume test return
+    public void currentVolumeLess101(){
+        Radio rad = new Radio();
+
+        rad.setCurrentVolume(101);
+        rad.setVolumeDown();
+
+        int expected = 100;
+        int actual = rad.getCurrentVolume();
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    // Volume test return
+    public void currentVolumeEqualsZero(){
+        Radio rad = new Radio();
+
+        rad.setCurrentVolume(0);
+        rad.setVolumeDown();
+
+        int expected = 0;
+        int actual = rad.getCurrentVolume();
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    // Volume test return
+    public void currentVolumeBetween101AndZero(){
+        Radio rad = new Radio();
+
+        rad.setCurrentVolume(50);
+        rad.setVolumeDown();
+
+        int expected = 49;
+        int actual = rad.getCurrentVolume();
+        assertEquals(expected,actual);
+    }
 
 }
