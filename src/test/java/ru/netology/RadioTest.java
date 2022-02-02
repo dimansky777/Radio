@@ -46,7 +46,7 @@ class RadioTest {
 
     @Test
     //Кнопка Next
-    public void setNextRadioSation(){
+    public void setNextRadioStation(){
     Radio rad = new Radio();
 
     rad.setCurrentRadioStation(9);
@@ -77,7 +77,7 @@ class RadioTest {
         Radio rad = new Radio();
 
         rad.setCurrentRadioStation(0);
-        rad.setPrevRadioSation();
+        rad.setPrevRadioStation();
 
         int expected = 9;
         int actual = rad.getCurrentRadioStation();
@@ -91,7 +91,7 @@ class RadioTest {
         Radio rad = new Radio();
 
         rad.setCurrentRadioStation(9);
-        rad.setPrevRadioSation();
+        rad.setPrevRadioStation();
 
         int expected = 8;
         int actual = rad.getCurrentRadioStation();
@@ -100,11 +100,11 @@ class RadioTest {
 
     @Test
     //Кнопка Prev
-    public void setPrevRadioSationEqualsMinusOne(){
+    public void setPrevRadioStationEqualsMinusOne(){
         Radio rad = new Radio();
 
         rad.setCurrentRadioStation(-1);
-        rad.setPrevRadioSation();
+        rad.setPrevRadioStation();
 
         int expected = 9;
         int actual = rad.getCurrentRadioStation();
@@ -116,7 +116,7 @@ class RadioTest {
         Radio rad = new Radio();
 
         rad.setCurrentRadioStation(10);
-        rad.setPrevRadioSation();
+        rad.setPrevRadioStation();
 
         int expected = 9;
         int actual = rad.getCurrentRadioStation();
@@ -124,11 +124,11 @@ class RadioTest {
     }
     @Test
     //Кнопка Prev
-    public void setPrevRadioSationEqualsNine(){
+    public void setPrevRadioStationEqualsNine(){
         Radio rad = new Radio();
 
         rad.setCurrentRadioStation(9);
-        rad.setPrevRadioSation();
+        rad.setPrevRadioStation();
 
         int expected = 8;
         int actual = rad.getCurrentRadioStation();
@@ -274,7 +274,7 @@ class RadioTest {
 
         rad.setCurrentRadioStation(10);
         rad.setNextRadioStation();
-        int expected = 1;
+        int expected = 0;
         int actual = rad.getCurrentRadioStation();
         assertEquals(expected, actual);
     }
@@ -314,6 +314,17 @@ class RadioTest {
     @Test
     //Кнопка Next Station
     public void setNextRadioStation6() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioStation(7);
+        rad.setNextRadioStation();
+        int expected = 8;
+        int actual = rad.getCurrentRadioStation();
+        assertEquals(expected, actual);
+    }
+    @Test
+    //Кнопка Next Station
+    public void setNextRadioStation7() {
         Radio rad = new Radio();
 
         rad.setCurrentRadioStation(9);

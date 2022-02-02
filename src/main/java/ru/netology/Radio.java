@@ -14,25 +14,26 @@ public class Radio {
         if (newCurrentRadioStation < -1) {
             return;
         }
-        if (newCurrentRadioStation > 9) {
+        if (newCurrentRadioStation > 10) {
             return;
         }
+
         this.currentRadioStation = newCurrentRadioStation;
 
 
     }
 
     public void setNextRadioStation() {
-        if (currentRadioStation <= 10) {
+        if (currentRadioStation <= 9) {
             currentRadioStation = currentRadioStation + 1;
         }
-        if (currentRadioStation == 10) {
-            currentRadioStation = 0;
+       if (currentRadioStation > 9) {
+           currentRadioStation = 0;
         }
     }
 
 
-    public void setPrevRadioSation() {
+    public void setPrevRadioStation() {
         if (currentRadioStation >-1) {
             currentRadioStation = currentRadioStation - 1;
         }
