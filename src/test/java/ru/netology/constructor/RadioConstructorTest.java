@@ -56,11 +56,6 @@ public class RadioConstructorTest {
         radio8.setPrevRadioStation();
         assertEquals(9, radio8.getCurrentRadioStation());
 
-        ///Переключение радио назад от 9 до 0
-        Radio radio9 = new Radio(9, 50, 10, 0, 100, 0);
-        radio9.setNextRadioStation();
-        assertEquals(0, radio9.getCurrentRadioStation());
-
         ///Включение любой станции с 0 до 9
         Radio radio10 = new Radio(7, 50, 10, 0, 100, 0);
         radio10.setCurrentRadioStation(0);
@@ -118,6 +113,7 @@ public class RadioConstructorTest {
         int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
     }
+
     @Test
     //Кнопка Volume Down
     public void setVolumeDownToZero() {
@@ -130,6 +126,7 @@ public class RadioConstructorTest {
         int actual = rad.getCurrentVolume();
         assertEquals(expected, actual);
     }
+
     @Test
     //Кнопка Volume Down
     public void setVolumeDownTo1() {
@@ -274,9 +271,9 @@ public class RadioConstructorTest {
 
     @Test
     public void constructorUse3() {
-        Radio radio = new Radio(8, 50, 15, 0, 100, 0);
+        Radio radio = new Radio(7, 50, 15, 0, 100, 0);
         radio.setNextRadioStation();
-        assertEquals(9, radio.getCurrentRadioStation());
+        assertEquals(8, radio.getCurrentRadioStation());
     }
 
     @Test
@@ -288,7 +285,7 @@ public class RadioConstructorTest {
 
     @Test
     public void constructorUse5() {
-        Radio radio = new Radio(10, 50, 10, 0, 100, 0);
+        Radio radio = new Radio(9, 50, 10, 0, 100, 0);
         radio.setNextRadioStation();
         assertEquals(0, radio.getCurrentRadioStation());
     }
@@ -325,4 +322,18 @@ public class RadioConstructorTest {
         assertEquals(9, radio.getCurrentRadioStation());
 
     }
+
+
+    @Test
+
+    public void constructorUse10() {
+
+        Radio radio = new Radio(60);
+        radio.setCurrentRadioStation(59);
+        radio.setNextRadioStation();
+        assertEquals(0, radio.getCurrentRadioStation());
+    }
+
+
+
 }
